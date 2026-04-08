@@ -21,7 +21,7 @@ jobs:
             flags: -e '-v /tmp/ccache:/root/.cache/go-build'
             cmd: GOFLAGS="-short" ./Hydrunfile test
             dst: out/nonexistent
-            runner: ubuntu-latest
+            runner: blacksmith-4vcpu-ubuntu-2404
 
           # We don't vendor the binaries
 
@@ -60,7 +60,7 @@ jobs:
           path: ${{ matrix.target.dst }}
 
   publish-linux:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     permissions:
       contents: write
     needs: build-linux
